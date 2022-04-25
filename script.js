@@ -53,18 +53,21 @@ function game() {
         }
 
         round(playerChoice, computerPlay());
-        let gameScore = `Your score: ${playerScore} VS Computer score: ${computerScore}`;
+        gameScore = `Your score: ${playerScore} VS Computer score: ${computerScore}`;
         console.log(gameScore);
     }
 
     if (playerScore === computerScore) {
-        alert("It's a total draw! Play another game to know the winner!");
+        alert(`It's a total draw! Play another game to know the winner!
+${gameScore}`);
     } 
     else if (playerScore > computerScore) {
-        alert("Congratulations! You win :)");
+        alert(`Congratulations! You win :)
+${gameScore}`);
     }
     else {
-        alert("Oh no, you lose! Better luck next time :)");
+        alert(`Oh no, you lose! Better luck next time :)
+${gameScore}`);
     }
 
     playerScore = 0;
@@ -73,5 +76,6 @@ function game() {
 
 let playerScore = 0;
 let computerScore = 0;
+let gameScore = `Your score: ${playerScore} VS Computer score: ${computerScore}`
 
 game();
