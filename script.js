@@ -37,11 +37,17 @@ function round(playerChoice, computerChoice) {
 function game() {
     for (i = 1 ; i <= 5 ; i++) {
         let playerChoice = prompt("Enter \"rock\", \"paper\" or \"scissors\"", "");
-        playerChoice = playerChoice.toLowerCase();
-        
-        if (playerChoice != "rock" || playerChoice != "paper" || playerChoice != "scissors") {
-            alert(`${playerChoice} is't allowed! Restart the game`)
-            break
+        if (playerChoice == null) {
+            alert("You canceled your choice, please restart the game!")
+            break;
+        }
+        else {
+            playerChoice = playerChoice.toLowerCase();
+        }
+
+        if (playerChoice != "rock" && playerChoice != "paper" && playerChoice != "scissors") {
+            alert(`${playerChoice} isn't allowed! Restart the game`)
+            break;
         }
 
         round(playerChoice, computerPlay());
