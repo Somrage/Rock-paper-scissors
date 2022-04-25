@@ -22,12 +22,12 @@ function round(playerChoice, computerChoice) {
     else if ((playerChoice === "rock" && computerChoice === "scissors") || (playerChoice === "paper" && computerChoice === "rock") || (playerChoice === "scissors" && computerChoice === "paper")) {
         result = `You win! ${playerChoice} beats ${computerChoice}`;
         console.log(result);
-        playerScore = +1
+        playerScore += 1
     }
     else {
         result = `You lose this round! ${computerChoice} beats ${playerChoice}`;
         console.log(result);
-        computerScore = +1
+        computerScore += 1
     }
 
     return playerScore, computerScore;
@@ -36,7 +36,9 @@ function round(playerChoice, computerChoice) {
 
 function game() {
     for (i = 1 ; i <= 5 ; i++) {
+
         let playerChoice = prompt("Enter \"rock\", \"paper\" or \"scissors\"", "");
+
         if (playerChoice == null) {
             alert("You canceled your choice, please restart the game!")
             break;
@@ -54,6 +56,19 @@ function game() {
         let gameScore = `Your score: ${playerScore} VS Computer score: ${computerScore}`;
         console.log(gameScore);
     }
+
+    if (playerScore === computerScore) {
+        alert("It's a total draw! Play another game to know the winner!");
+    } 
+    else if (playerScore > computerScore) {
+        alert("Congratulations! You win :)");
+    }
+    else {
+        alert("Oh no, you lose! Better luck next time :)");
+    }
+
+    playerScore = 0;
+    computerScore = 0;
 }
 
 let playerScore = 0;
