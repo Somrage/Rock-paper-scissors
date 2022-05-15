@@ -4,6 +4,8 @@ const gameScore = document.querySelector('.score');
 
 const result = document.querySelector('.result');
 
+const computerPick = document.querySelector('.computer-pick')
+
 
 function computerPlay() {
     let computerChoice = Math.floor(Math.random()*3) + 1;
@@ -24,65 +26,46 @@ function computerPlay() {
 function round(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
         result.textContent = "It's a draw! Play again";
-        console.log(result);
+        computerPick.textContent = `Bob picked ${computerChoice}`
     }
     else if ((playerChoice === "rock" && computerChoice === "scissors") || (playerChoice === "paper" && computerChoice === "rock") || (playerChoice === "scissors" && computerChoice === "paper")) {
         result.textContent = `You win! ${playerChoice} beats ${computerChoice}`;
-        console.log(result);
+        computerPick.textContent = `Bob picked ${computerChoice}`
         playerScore += 1
     }
     else {
         result.textContent = `You lose this round! ${computerChoice} beats ${playerChoice}`;
-        console.log(result);
+        computerPick.textContent = `Bob picked ${computerChoice}`
         computerScore += 1
     }
     
-    return gameScore.textContent = `Your score is ${playerScore} || Computer score is ${computerScore}`;
+    return gameScore.textContent = `${playerScore} | ${computerScore}`;
     
 }
 
-const selection = document.querySelectorAll('button')
+const selection = document.querySelectorAll('.choice')
     selection.forEach((button) => {
         button.addEventListener('click', () => {
             playerChoice = button.id;
             round(playerChoice, computerPlay());
+
+            if (playerScore === 5) {
+                result.textContent = `Congratulations! You win :)`
+                computerPick.textContent = `Bob is ready for next game!`
+                playerScore = 0;
+                computerScore = 0;
+            }
+            else if (computerScore === 5) {
+                result.textContent = `Oh no, you lose! Better luck next time :)`
+                computerPick.textContent = `Bob is ready for next game!`
+                playerScore = 0;
+                computerScore = 0;
+            }
         })
     })
 
-// function game() {
-//     let playerChoice = prompt("Enter \"rock\", \"paper\" or \"scissors\"", "");
-    
-//     if (playerChoice == null) {
-//         alert("You canceled your choice, please restart the game!")
-//         break;
-//     }
-//     else {
-//         playerChoice = playerChoice.toLowerCase();
-//     }
-//     if (playerChoice != "rock" && playerChoice != "paper" && playerChoice != "scissors") {
-//         alert(`${playerChoice} isn't allowed! Restart the game`)
-//         break;
-//     }
-//     round(playerChoice, computerPlay());
-//     gameScore = `Your score: ${playerScore} VS Computer score: ${computerScore}`;
-//     console.log(gameScore);
-    
-
-//     if (playerScore === computerScore) {
-//         alert(`It's a total draw! Play another game to know the winner!
-// ${gameScore}`);
-//     } 
-//     else if (playerScore > computerScore) {
-//         alert(`Congratulations! You win :)
-// ${gameScore}`);
-//     }
-//     else {
-//         alert(`Oh no, you lose! Better luck next time :)
-// ${gameScore}`);
-//     }
-
-//     playerScore = 0;
-//     computerScore = 0;
-// }
-
-// game();
+const restart = document.querySelector('#restart')
+restart.addEventListener('click', () => {
+    gameScore.textContent = `0 | 0`;
+    result.textContent = `Hello! To start the game pick rock, paper, or scissors`;
+})

@@ -5,14 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Zen+Loop&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <button id="rock">ROCK</button>
-    <button id="paper">PAPER</button>
-    <button id="scissors">SCISSORS</button>
-
-    <div class="result"></div>
-    <div class="score"></div>
+    <div class="top">
+        <h1>rock • paper • scissors</h1>
+    </div>
+    <div class="table">
+        <h2 class="computer-pick">Your enemy is Bob. Bob is ready to fight!</h2>
+        <p class="score">0 | 0</p>
+        <h2 class="result">Hello! To start the game pick rock, paper, or scissors</p>
+    </div>
+    <div class="buttons">
+        <button class="choice" id="rock">ROCK</button>
+        <button class="choice" id="paper">PAPER</button>
+        <button class="choice" id="scissors">SCISSORS</button>
+        <button id="restart">RESTART</button>
+        <button id="night-theme">DARK</button>
+    </div>
 </body>
 </html>
