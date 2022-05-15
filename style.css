@@ -3,13 +3,13 @@ body {
     display: flex;
     flex-flow: column nowrap;
     height: 100vh;
+    max-height: 100vh;
 }
 
 .buttons,
 .table,
 .top {
     display: flex;
-    flex: 1 0 auto;
     align-items: center;
     justify-content: center;
 }
@@ -17,25 +17,36 @@ body {
 .buttons {
     background-color: #F8C537;
     gap: 3vh;
-    flex: 1 1 50%;
+    flex: 1 1 25%;
 }
 
 .table {
     display: flex;
     flex-flow: column;
     background-color: #FFFAFF;
-    flex: 2 0 auto;
+    flex: 2 1 25%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; 
 }
 
 .top {
     background-color: #F8C537;
+    flex: 1 0 auto;
 }
 
 button {
+    border-color:black;
     height: 5vh;
-    width: 10vh;
+    width: 12vh;
+    background-color: #FFFAFF;
+    color: #253b6c;
+    font-size: 2vh;
+    font-family: 'Koulen', cursive;
+    font-weight: 100;
+}
+
+button:active {
+    background-color: #F8C537;
 }
 
 h1 {
@@ -48,6 +59,7 @@ h2 {
     font-family: 'Koulen', cursive;
     font-weight: 100;
     font-size: 3.5vh;
+    height: 7vh;
 }
 
 .score {

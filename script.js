@@ -6,6 +6,12 @@ const result = document.querySelector('.result');
 
 const computerPick = document.querySelector('.computer-pick')
 
+const restart = document.querySelector('#restart')
+restart.addEventListener('click', () => {
+    gameScore.textContent = `0 | 0`;
+    result.textContent = `Hello! To start the game pick rock, paper, or scissors`;
+})
+
 
 function computerPlay() {
     let computerChoice = Math.floor(Math.random()*3) + 1;
@@ -46,7 +52,11 @@ function round(playerChoice, computerChoice) {
 const selection = document.querySelectorAll('.choice')
     selection.forEach((button) => {
         button.addEventListener('click', () => {
-            playerChoice = button.id;
+            playerChoice = button.id;const restart = document.querySelector('#restart')
+            restart.addEventListener('click', () => {
+                gameScore.textContent = `0 | 0`;
+                result.textContent = `Hello! To start the game pick rock, paper, or scissors`;
+            })
             round(playerChoice, computerPlay());
 
             if (playerScore === 5) {
@@ -63,9 +73,3 @@ const selection = document.querySelectorAll('.choice')
             }
         })
     })
-
-const restart = document.querySelector('#restart')
-restart.addEventListener('click', () => {
-    gameScore.textContent = `0 | 0`;
-    result.textContent = `Hello! To start the game pick rock, paper, or scissors`;
-})
