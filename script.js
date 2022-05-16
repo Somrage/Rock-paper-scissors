@@ -44,6 +44,19 @@ function round(playerChoice, computerChoice) {
         computerPick.textContent = `Bob picked ${computerChoice}`
         computerScore += 1
     }
+
+    if (playerScore === 5 || computerScore === 5) {
+        selection.forEach((button) => {
+            button.disabled = true;
+        })
+    }
+    else {
+        restart.addEventListener('click', () => {
+            selection.forEach((button) => {
+                button.disabled = false;
+            })
+        })
+    }
     
     return gameScore.textContent = `${playerScore} | ${computerScore}`;
     
@@ -61,13 +74,13 @@ const selection = document.querySelectorAll('.choice')
 
             if (playerScore === 5) {
                 result.textContent = `Congratulations! You win :)`
-                computerPick.textContent = `Bob is ready for next game!`
+                computerPick.textContent = `To start a new game press restart`
                 playerScore = 0;
                 computerScore = 0;
             }
             else if (computerScore === 5) {
                 result.textContent = `Oh no, you lose! Better luck next time :)`
-                computerPick.textContent = `Bob is ready for next game!`
+                computerPick.textContent = `To start a new game press restart`
                 playerScore = 0;
                 computerScore = 0;
             }
